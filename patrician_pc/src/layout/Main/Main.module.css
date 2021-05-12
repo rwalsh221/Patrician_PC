@@ -1,0 +1,10 @@
+.main {
+  min-height: 100vh;
+  background: repeating-linear-gradient(
+    to right,
+    #55342b,
+    #55342b 500px,
+    #442a22 500px,
+    #442a22 505px
+  );
+}

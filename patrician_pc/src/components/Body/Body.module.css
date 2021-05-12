@@ -1,0 +1,30 @@
+.scrollContainer {
+  display: flex;
+  width: 80%;
+  min-height: 80vh;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.scrollLeft {
+  /* box-shadow: 10px 10px 8px #888888 inset; */
+  box-shadow: 2px 2px 2px #dab171, -5px -0px 4px #dab171 inset;
+}
+
+.scrollLeft,
+.scrollRight {
+  height: 50rem;
+  width: 6%;
+  background-color: #ebd5b3;
+  z-index: 1000;
+  border: 2px solid #dab171;
+  border-radius: 2rem;
+}
+
+.scrollCenter {
+  background-color: #ebd5b3;
+  width: 80%;
+  height: 47rem;
+  border-radius: 3px;
+}

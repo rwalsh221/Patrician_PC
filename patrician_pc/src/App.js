@@ -2,7 +2,7 @@ import React from 'react';
 
 import Main from './layout/Main/Main';
 
-// require('./App.css');
+require('./App.css');
 // require('./Variables.css');
 // require('./Grids.css');
 
