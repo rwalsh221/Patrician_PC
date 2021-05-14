@@ -6,14 +6,20 @@ const Item = (props) => {
   return (
     <div className={classes.itemContainer}>
       <h2 className={classes.name}>PlaceHolder Name:</h2>
-      <ul className={classes.price}>
-        <li className={classes.priceLabel}>AVG:</li>
-        <li className={classes.priceLabel}>LO:</li>
-        <li className={classes.priceLabel}>HI:</li>
+      <ul className={classes.priceList}>
+        <li className={classes.priceLabel}>
+          AVG:{<span className={classes.priceProp}>{props.avg}</span>}
+        </li>
+        <li className={classes.priceLabel}>
+          LO:{<span className={classes.priceProp}>{props.lo}</span>}
+        </li>
+        <li className={classes.priceLabel}>
+          HI:{<span className={classes.priceProp}>{props.hi}</span>}
+        </li>
       </ul>
-      <form>
-        <input />
-        <button>Submit Price</button>
+      <form className={classes.form}>
+        <input type={'number'} name={'price'} />
+        <button className={classes.submitBtn}>Submit Price</button>
       </form>
     </div>
   );

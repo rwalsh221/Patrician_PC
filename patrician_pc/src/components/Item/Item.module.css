@@ -1,19 +1,42 @@
 .itemContainer {
   border: 2px solid grey;
   display: flex;
-
+  color: var(--font-color);
   align-items: center;
+  margin: 2rem;
+  border-radius: 1rem;
 }
 
 .name {
   padding: 2rem;
+  font-size: 3rem;
+  font-weight: 600;
 }
 
-.price {
+.priceList {
   list-style: none;
+  margin-top: 0.5rem;
 }
 
 .priceLabel {
   display: inline;
   margin: 0 1rem;
+  font-size: 2rem;
+}
+
+.priceProp {
+  color: #008080;
+  font-weight: 800;
+}
+
+.form {
+  margin: 0.5rem 0 0 3rem;
+}
+
+.submitBtn {
+  padding: 2rem;
+  border-radius: 2rem;
+  outline: none;
+  border: 3px solid var(--font-color);
+  margin-left: 1rem;
 }

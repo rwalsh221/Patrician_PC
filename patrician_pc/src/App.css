@@ -42,3 +42,11 @@ img {
 }
 
 /* END OF CSS RESET */
+
+:root {
+  --font-color: #383b3e;
+}
+
+body {
+  font-family: 'Dancing Script', cursive;
+}
