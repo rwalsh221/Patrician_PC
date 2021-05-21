@@ -28,7 +28,7 @@
 
 .priceProp {
   color: #008080;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .form {
@@ -44,11 +44,12 @@
 }
 
 .alert {
-  background-color: #008080;
+  background-color: lightgray;
   font-size: 2rem;
   margin-left: 2rem;
   padding: 2rem;
-  border: 2px solid #008080;
+  border: 3px solid grey;
   border-radius: 2rem;
-  background-color: grey;
+  color: var(--font-color);
+  font-weight: 700;
 }

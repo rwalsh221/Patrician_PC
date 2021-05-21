@@ -12,7 +12,7 @@ const Item = (props) => {
     }, 10000);
   };
 
-  const alert = <div className={classes.alert}>PRRICE UPDATED SUCESSFULLY</div>;
+  const alert = <div className={classes.alert}>PRICE UPDATED SUCESSFULLY</div>;
   return (
     <div className={classes.itemContainer}>
       <h2 className={classes.name}>{props.name}:</h2>
@@ -31,9 +31,10 @@ const Item = (props) => {
         <input type={'number'} name={'price'} placeholder={'Input New Price'} />
         <button
           className={classes.submitBtn}
-          onClick={(e) => {
+          onClick={async (e) => {
             e.preventDefault();
-            showAlert();
+            await props.priceHandler(props.name, showAlert);
+            // showAlert();
           }}
         >
           Submit Price
