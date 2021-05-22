@@ -16,18 +16,42 @@ const Item = (props) => {
     }, 10000);
   };
 
+  const dataKey = props.name.split(' ').join('');
+  let data = { ...props.data };
+
+  if (data && data[dataKey] === undefined)
+    data = {
+      ...data,
+      [dataKey]: { avgPrice: 0, loPrice: 0, hiPrice: 0 },
+    };
+
   return (
     <div className={classes.itemContainer}>
       <h2 className={classes.name}>{props.name}:</h2>
       <ul className={classes.priceList}>
         <li className={classes.priceLabel}>
-          AVG:{<span className={classes.priceProp}>{props.avg}</span>}
+          AVG:
+          {
+            <span className={classes.priceProp}>
+              {data ? data[dataKey].avgPrice : 0}
+            </span>
+          }
         </li>
         <li className={classes.priceLabel}>
-          LO:{<span className={classes.priceProp}>{props.lo}</span>}
+          LO:
+          {
+            <span className={classes.priceProp}>
+              {data ? data[dataKey].loPrice : 0}
+            </span>
+          }
         </li>
         <li className={classes.priceLabel}>
-          HI:{<span className={classes.priceProp}>{props.hi}</span>}
+          HI:
+          {
+            <span className={classes.priceProp}>
+              {data ? data[dataKey].hiPrice : 0}
+            </span>
+          }
         </li>
       </ul>
       <form className={classes.form}>
@@ -46,7 +70,7 @@ const Item = (props) => {
               inputRef.current.value,
               showAlert
             );
-            // showAlert();
+            inputRef.current.value = '';
           }}
         >
           Submit Price
