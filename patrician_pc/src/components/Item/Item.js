@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 import classes from './Item.module.css';
 
 const Item = (props) => {
-  const [priceUpdated, setPriceUpdated] = useState(false);
+  const [alertMessage, setAlertMessage] = useState(null);
 
-  const showAlert = () => {
-    setPriceUpdated(true);
+  const inputRef = useRef();
+
+  const alert = <div className={classes.alert}>{alertMessage}</div>;
+
+  const showAlert = (message = 'PRICE UPDATED SUCESSFULLY') => {
+    setAlertMessage(message);
     setTimeout(() => {
-      setPriceUpdated(false);
+      setAlertMessage(null);
     }, 10000);
   };
 
-  const alert = <div className={classes.alert}>PRICE UPDATED SUCESSFULLY</div>;
   return (
     <div className={classes.itemContainer}>
       <h2 className={classes.name}>{props.name}:</h2>
@@ -28,19 +31,28 @@ const Item = (props) => {
         </li>
       </ul>
       <form className={classes.form}>
-        <input type={'number'} name={'price'} placeholder={'Input New Price'} />
+        <input
+          type={'number'}
+          name={'price'}
+          placeholder={'Input New Price'}
+          ref={inputRef}
+        />
         <button
           className={classes.submitBtn}
           onClick={async (e) => {
             e.preventDefault();
-            await props.priceHandler(props.name, showAlert);
+            await props.priceHandler(
+              props.name,
+              inputRef.current.value,
+              showAlert
+            );
             // showAlert();
           }}
         >
           Submit Price
         </button>
       </form>
-      {priceUpdated && alert}
+      {alertMessage && alert}
     </div>
   );
 };
