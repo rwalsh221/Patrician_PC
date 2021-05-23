@@ -44,6 +44,11 @@
   /* margin-left: 1rem; */
   margin: 0 0 0.5rem 1rem;
   width: 15rem;
+  box-shadow: 2px 2px 2px black;
+}
+
+.submitBtn:active {
+  box-shadow: none;
 }
 
 .alert {
@@ -55,6 +60,24 @@
   border-radius: 2rem;
   color: var(--font-color);
   font-weight: 700;
+}
+
+.error,
+.success,
+.initial {
+  transition: 0.5s;
+}
+
+.error {
+  background-color: red;
+}
+
+.success {
+  background-color: green;
+}
+
+.initial {
+  background-color: #008080;
 }
 
 @media (max-width: 1024px) {

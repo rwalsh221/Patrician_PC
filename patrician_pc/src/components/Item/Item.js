@@ -6,17 +6,18 @@ const Item = (props) => {
   const [alertMessage, setAlertMessage] = useState({
     alertMessage: null,
     disabled: false,
+    className: 'initial',
   });
 
   const inputRef = useRef();
 
-  const showAlert = (message = 'SUCCESS') => {
+  const showAlert = (message = 'SUCCESS', className = 'success') => {
     let alert = { ...alertMessage };
 
-    alert = { alertMessage: message, disabled: true };
+    alert = { alertMessage: message, disabled: true, className: className };
     setAlertMessage({ ...alert });
     setTimeout(() => {
-      alert = { alertMessage: null, disabled: false };
+      alert = { alertMessage: null, disabled: false, className: 'initial' };
       setAlertMessage({ ...alert });
     }, 5000);
   };
@@ -68,7 +69,7 @@ const Item = (props) => {
         />
         <button
           disabled={alertMessage.disabled}
-          className={classes.submitBtn}
+          className={`${classes.submitBtn} ${classes[alertMessage.className]}`}
           onClick={async (e) => {
             e.preventDefault();
             await props.priceHandler(

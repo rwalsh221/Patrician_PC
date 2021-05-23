@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { database } from '../../firebase';
 
 import Item from '../Item/Item';
@@ -7,7 +7,6 @@ import classes from './Body.module.css';
 
 const Body = () => {
   const [itemPrices, setItemPrices] = useState(null);
-  console.log('render');
 
   const database =
     'https://patrician3-pc-default-rtdb.europe-west1.firebasedatabase.app/';
@@ -31,7 +30,7 @@ const Body = () => {
       console.error(error);
     }
   };
-  console.log(itemPrices);
+
   useEffect(() => {
     getItemPrices();
   }, []);
@@ -41,7 +40,7 @@ const Body = () => {
     if (name.includes(' ')) name = name.split(' ').join('');
 
     try {
-      if (newPrice <= 0) return alert('ERROR');
+      if (newPrice <= 0) return alert('ERROR', 'error');
       // 1 get prices array from db
       const getPrices = await fetch(`${database}/item/${name}.json`);
 
