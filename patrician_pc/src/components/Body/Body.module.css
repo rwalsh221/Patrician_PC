@@ -41,3 +41,39 @@
   margin: 3rem;
   color: var(--font-color);
 }
+
+@media (max-width: 1024px) {
+  .scrollContainer {
+    width: 90%;
+  }
+
+  .scrollTop,
+  .scrollBottom {
+    width: 92%;
+  }
+
+  .scrollCenter {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .scrollContainer {
+    width: 100%;
+  }
+
+  .scrollTop,
+  .scrollBottom {
+    width: 100%;
+  }
+
+  .scrollCenter {
+    width: 95%;
+  }
+}
+
+@media (max-width: 320px) {
+  .scrollCenter {
+    padding: 1rem;
+  }
+}

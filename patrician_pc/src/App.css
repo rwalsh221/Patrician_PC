@@ -50,3 +50,9 @@ img {
 body {
   font-family: 'Dancing Script', cursive;
 }
+
+@media (max-width: 414px) {
+  html {
+    font-size: 50%;
+  }
+}

@@ -58,7 +58,7 @@ const Item = (props) => {
         <input
           type={'number'}
           name={'price'}
-          placeholder={'Input New Price'}
+          placeholder={'Input New Price Above Zero'}
           ref={inputRef}
         />
         <button

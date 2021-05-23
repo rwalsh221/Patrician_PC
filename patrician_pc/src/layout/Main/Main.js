@@ -9,9 +9,9 @@ import classes from './Main.module.css';
 const Main = () => {
   return (
     <div className={classes.main}>
-      <Header />
+      {/* <Header /> */}
       <Body />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

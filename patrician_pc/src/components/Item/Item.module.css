@@ -8,16 +8,17 @@
 }
 
 .name {
-  padding: 2rem;
+  padding: 1rem;
   font-size: 3rem;
   font-weight: 600;
   text-transform: capitalize;
-  width: 16%;
+  width: 15rem;
 }
 
 .priceList {
   list-style: none;
   margin-top: 0.5rem;
+  width: 20rem;
 }
 
 .priceLabel {
@@ -40,7 +41,8 @@
   border-radius: 2rem;
   outline: none;
   border: 3px solid var(--font-color);
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
+  margin: 0 0 0.5rem 1rem;
 }
 
 .alert {
@@ -52,4 +54,30 @@
   border-radius: 2rem;
   color: var(--font-color);
   font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .form {
+    margin: 0.5rem 0 0 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .form input {
+    width: 8rem;
+  }
+}
+
+@media (max-width: 414px) {
+  .itemContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 375px) {
+  .itemContainer {
+    text-align: center;
+  }
 }

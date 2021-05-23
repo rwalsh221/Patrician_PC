@@ -7,4 +7,11 @@
     #442a22 500px,
     #442a22 505px
   );
+  padding: 5rem;
+}
+
+@media (max-width: 1024px) {
+  .main {
+    padding: 2rem;
+  }
 }
