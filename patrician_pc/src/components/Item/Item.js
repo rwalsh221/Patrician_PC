@@ -3,17 +3,22 @@ import React, { useState, useRef } from 'react';
 import classes from './Item.module.css';
 
 const Item = (props) => {
-  const [alertMessage, setAlertMessage] = useState(null);
+  const [alertMessage, setAlertMessage] = useState({
+    alertMessage: null,
+    disabled: false,
+  });
 
   const inputRef = useRef();
 
-  const alert = <div className={classes.alert}>{alertMessage}</div>;
+  const showAlert = (message = 'SUCCESS') => {
+    let alert = { ...alertMessage };
 
-  const showAlert = (message = 'PRICE UPDATED SUCESSFULLY') => {
-    setAlertMessage(message);
+    alert = { alertMessage: message, disabled: true };
+    setAlertMessage({ ...alert });
     setTimeout(() => {
-      setAlertMessage(null);
-    }, 10000);
+      alert = { alertMessage: null, disabled: false };
+      setAlertMessage({ ...alert });
+    }, 5000);
   };
 
   const dataKey = props.name.split(' ').join('');
@@ -62,6 +67,7 @@ const Item = (props) => {
           ref={inputRef}
         />
         <button
+          disabled={alertMessage.disabled}
           className={classes.submitBtn}
           onClick={async (e) => {
             e.preventDefault();
@@ -73,10 +79,11 @@ const Item = (props) => {
             inputRef.current.value = '';
           }}
         >
-          Submit Price
+          {alertMessage.alertMessage
+            ? alertMessage.alertMessage
+            : 'Submit Price'}
         </button>
       </form>
-      {alertMessage && alert}
     </div>
   );
 };

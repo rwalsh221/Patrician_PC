@@ -41,7 +41,7 @@ const Body = () => {
     if (name.includes(' ')) name = name.split(' ').join('');
 
     try {
-      if (newPrice <= 0) return alert('PRICE MUST BE GREATER THAN ZERO');
+      if (newPrice <= 0) return alert('ERROR');
       // 1 get prices array from db
       const getPrices = await fetch(`${database}/item/${name}.json`);
 
