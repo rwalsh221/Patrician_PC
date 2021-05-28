@@ -42,7 +42,7 @@
   color: var(--font-color);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1366px) {
   .scrollContainer {
     width: 90%;
   }
@@ -57,7 +57,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .scrollContainer {
     width: 100%;
   }

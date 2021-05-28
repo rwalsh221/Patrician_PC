@@ -1,10 +1,18 @@
 .itemContainer {
   border: 2px solid grey;
-  display: flex;
+
   color: var(--font-color);
   align-items: center;
   margin: 2rem;
   border-radius: 1rem;
+  display: grid;
+  grid-template: repeat(2, 50%) / repeat(4, max-content);
+}
+
+.name,
+.form,
+.submitBtn {
+  grid-row: 1 / span 2;
 }
 
 .name {
@@ -13,6 +21,29 @@
   font-weight: 600;
   text-transform: capitalize;
   width: 15rem;
+}
+
+.buy,
+.sell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 2;
+}
+
+.buy h3,
+.sell h3 {
+  margin-right: 0.5rem;
+  color: #008080;
+  font-size: 1.8rem;
+  margin-top: 0.5rem;
+}
+
+.buy {
+  grid-row: 1;
+}
+.sell {
+  grid-row: 2;
 }
 
 .priceList {
@@ -32,6 +63,20 @@
   font-weight: 700;
 }
 
+.buyForm,
+.sellForm {
+  grid-column: 3;
+  margin-left: 5rem;
+}
+
+.buyForm {
+  grid-row: 1;
+}
+
+.sellForm {
+  grid-row: 2;
+}
+
 .form {
   margin: 0.5rem 0 0 3rem;
 }
@@ -42,7 +87,7 @@
   outline: none;
   border: 3px solid var(--font-color);
   /* margin-left: 1rem; */
-  margin: 0 0 0.5rem 1rem;
+  margin: 1rem 0 1rem 3rem;
   width: 15rem;
   box-shadow: 2px 2px 2px black;
 }
@@ -94,9 +139,42 @@
 
 @media (max-width: 414px) {
   .itemContainer {
-    flex-wrap: wrap;
-    justify-content: center;
+    grid-template: repeat(6, max-content) / repeat(1, 100%);
+    justify-items: center;
     align-items: center;
+    justify-content: center;
+    margin: 1rem;
+  }
+
+  .name,
+  .buy,
+  .buyForm,
+  .sell,
+  .sellForm,
+  .submitBtn {
+    grid-column: 1;
+    margin: 0.5rem;
+  }
+
+  .name {
+    grid-row: 1;
+    text-align: center;
+  }
+  .buy {
+    grid-row: 2;
+  }
+
+  .buyForm {
+    grid-row: 3;
+  }
+  .sell {
+    grid-row: 4;
+  }
+  .sellForm {
+    grid-row: 5;
+  }
+  .submitBtn {
+    grid-row: 6;
   }
 }
 
