@@ -6,6 +6,8 @@ require('./App.css');
 // require('./Variables.css');
 // require('./Grids.css');
 
+let x;
+
 function App() {
   return (
     <div className="App">

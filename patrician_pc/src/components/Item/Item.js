@@ -1,8 +1,11 @@
 import React, { useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 
 import classes from './Item.module.css';
 
 const Item = (props) => {
+  const { name, data } = props;
+
   const [alertMessage, setAlertMessage] = useState({
     alertMessage: null,
     disabled: false,
@@ -26,24 +29,25 @@ const Item = (props) => {
   };
 
   // SETS DATAKEY AND REMOVE SPACE i.e 'PIG IRON'
-  const dataKey = props.name.split(' ').join('');
-  let data = { ...props.data };
+  const dataKey = name.split(' ').join('');
+  // TODO: replace data with itemData below
+  let itemData = { ...props.data };
 
   // CREATE DATA OBJ IF ITEM DOESNT EXIST IN DATABASE
   // BUYOBJ
-  if (data[dataKey] === undefined || data[dataKey].buy === undefined) {
-    data = {
+  if (itemData[dataKey] === undefined || itemData[dataKey].buy === undefined) {
+    itemData = {
       [dataKey]: {
-        ...data[dataKey],
+        ...itemData[dataKey],
         buy: { avgPrice: 0, loPrice: 0, hiPrice: 0 },
       },
     };
   }
   // SELL OBJ
-  if (data[dataKey] === undefined || data[dataKey].sell === undefined) {
-    data = {
+  if (itemData[dataKey] === undefined || itemData[dataKey].sell === undefined) {
+    itemData = {
       [dataKey]: {
-        ...data[dataKey],
+        ...itemData[dataKey],
         sell: { avgPrice: 0, loPrice: 0, hiPrice: 0 },
       },
     };
@@ -77,27 +81,21 @@ const Item = (props) => {
         <ul className={classes.priceList}>
           <li className={classes.priceLabel}>
             AVG:
-            {
-              <span className={classes.priceProp}>
-                {data ? data[dataKey].buy.avgPrice : 0}
-              </span>
-            }
+            <span className={classes.priceProp}>
+              {itemData ? itemData[dataKey].buy.avgPrice : 0}
+            </span>
           </li>
           <li className={classes.priceLabel}>
             LO:
-            {
-              <span className={classes.priceProp}>
-                {data ? data[dataKey].buy.loPrice : 0}
-              </span>
-            }
+            <span className={classes.priceProp}>
+              {itemData ? itemData[dataKey].buy.loPrice : 0}
+            </span>
           </li>
           <li className={classes.priceLabel}>
             HI:
-            {
-              <span className={classes.priceProp}>
-                {data ? data[dataKey].buy.hiPrice : 0}
-              </span>
-            }
+            <span className={classes.priceProp}>
+              {itemData ? itemData[dataKey].buy.hiPrice : 0}
+            </span>
           </li>
         </ul>
       </div>
@@ -106,27 +104,21 @@ const Item = (props) => {
         <ul className={classes.priceList}>
           <li className={classes.priceLabel}>
             AVG:
-            {
-              <span className={classes.priceProp}>
-                {data ? data[dataKey].sell.avgPrice : 0}
-              </span>
-            }
+            <span className={classes.priceProp}>
+              {itemData ? itemData[dataKey].sell.avgPrice : 0}
+            </span>
           </li>
           <li className={classes.priceLabel}>
             LO:
-            {
-              <span className={classes.priceProp}>
-                {data ? data[dataKey].sell.loPrice : 0}
-              </span>
-            }
+            <span className={classes.priceProp}>
+              {itemData ? itemData[dataKey].sell.loPrice : 0}
+            </span>
           </li>
           <li className={classes.priceLabel}>
             HI:
-            {
-              <span className={classes.priceProp}>
-                {data ? data[dataKey].sell.hiPrice : 0}
-              </span>
-            }
+            <span className={classes.priceProp}>
+              {itemData ? itemData[dataKey].sell.hiPrice : 0}
+            </span>
           </li>
         </ul>
       </div>
@@ -158,6 +150,10 @@ const Item = (props) => {
       </button>
     </div>
   );
+};
+
+Item.propTypes = {
+  name: PropTypes.string.isRequired,
 };
 
 export default Item;
