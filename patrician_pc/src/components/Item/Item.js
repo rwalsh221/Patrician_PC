@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import classes from './Item.module.css';
 
 const Item = (props) => {
-  const { name, data } = props;
+  const { nameProps, dataProps, priceHandlerProps } = props;
+  console.log(props.name);
 
   const [alertMessage, setAlertMessage] = useState({
     alertMessage: null,
@@ -19,7 +20,7 @@ const Item = (props) => {
   const showAlert = (message = 'SUCCESS', className = 'success') => {
     let alert = { ...alertMessage };
 
-    alert = { alertMessage: message, disabled: true, className: className };
+    alert = { alertMessage: message, disabled: true, className };
     setAlertMessage({ ...alert });
 
     setTimeout(() => {
@@ -29,9 +30,9 @@ const Item = (props) => {
   };
 
   // SETS DATAKEY AND REMOVE SPACE i.e 'PIG IRON'
-  const dataKey = name.split(' ').join('');
+  const dataKey = nameProps.split(' ').join('');
   // TODO: replace data with itemData below
-  let itemData = { ...props.data };
+  let itemData = { ...dataProps };
 
   // CREATE DATA OBJ IF ITEM DOESNT EXIST IN DATABASE
   // BUYOBJ
@@ -55,16 +56,16 @@ const Item = (props) => {
 
   const submitPriceHandler = async () => {
     if (buyInputRef.current.value !== '') {
-      await props.priceHandler(
-        props.name,
+      await priceHandlerProps(
+        nameProps,
         buyInputRef.current.value,
         'buy',
         showAlert
       );
       buyInputRef.current.value = '';
     } else if (sellInputRef.current.value !== '') {
-      await props.priceHandler(
-        props.name,
+      await priceHandlerProps(
+        nameProps,
         sellInputRef.current.value,
         'sell',
         showAlert
@@ -75,7 +76,7 @@ const Item = (props) => {
 
   return (
     <div className={classes.itemContainer}>
-      <h2 className={classes.name}>{props.name}:</h2>
+      <h2 className={classes.name}>{nameProps}:</h2>
       <div className={classes.buy}>
         <h3>BUY:</h3>
         <ul className={classes.priceList}>
@@ -139,6 +140,7 @@ const Item = (props) => {
         />
       </form>
       <button
+        type={'submit'}
         disabled={alertMessage.disabled}
         className={`${classes.submitBtn} ${classes[alertMessage.className]}`}
         onClick={async (e) => {
@@ -153,7 +155,9 @@ const Item = (props) => {
 };
 
 Item.propTypes = {
-  name: PropTypes.string.isRequired,
+  nameProps: PropTypes.string.isRequired,
+  dataProps: PropTypes.objectOf(PropTypes.any).isRequired,
+  priceHandlerProps: PropTypes.func.isRequired,
 };
 
 export default Item;
