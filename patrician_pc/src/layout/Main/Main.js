@@ -11,9 +11,11 @@ const ScrollEdge = React.lazy(() =>
 const Main = () => (
   <main className={classes.main}>
     <section className={classes.scrollContainer}>
-      <ScrollEdge position="scrollTop" />
-      <ScrollCenter />
-      <ScrollEdge position="scrollBottom" />
+      <React.Suspense fallback={<p>Loading</p>}>
+        <ScrollEdge position="scrollTop" />
+        <ScrollCenter />
+        <ScrollEdge position="scrollBottom" />
+      </React.Suspense>
     </section>
   </main>
 );

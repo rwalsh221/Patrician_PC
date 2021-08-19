@@ -143,8 +143,10 @@ const ScrollCenter = () => {
 
   return (
     <div className={classes.scrollCenter}>
-      <Header />
-      {content}
+      <React.Suspense fallback={<p>Loading</p>}>
+        <Header />
+        {content}
+      </React.Suspense>
     </div>
   );
 };
