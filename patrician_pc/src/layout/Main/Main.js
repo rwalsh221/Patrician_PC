@@ -1,9 +1,12 @@
 import React from 'react';
-
-import ScrollCenter from '../../components/ScrollCenter/ScrollCenter';
-import ScrollEdge from '../../components/ScrollEdge/ScrollEdge';
-
 import classes from './Main.module.css';
+
+const ScrollCenter = React.lazy(() =>
+  import('../../components/ScrollCenter/ScrollCenter')
+);
+const ScrollEdge = React.lazy(() =>
+  import('../../components/ScrollEdge/ScrollEdge')
+);
 
 const Main = () => (
   <main className={classes.main}>

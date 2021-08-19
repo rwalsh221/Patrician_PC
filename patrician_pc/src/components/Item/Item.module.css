@@ -121,6 +121,7 @@
 
 .initial {
   background-color: #008080;
+  background-color: hotpink;
 }
 
 @media (max-width: 1024px) {
