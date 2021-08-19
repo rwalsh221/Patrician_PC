@@ -20,7 +20,17 @@
   flex-direction: column;
 }
 
+@media (max-width: 1366px) {
+  .scrollContainer {
+    width: 90%;
+  }
+}
+
 @media (max-width: 1024px) {
+  .scrollContainer {
+    width: 100%;
+  }
+
   .main {
     padding: 2rem;
   }
