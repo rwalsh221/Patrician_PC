@@ -23,7 +23,9 @@ const ScrollCenter = () => {
 
   const getItemPrices = async () => {
     try {
-      const getPrices = await fetch(`${database}/item.json`);
+      const getPrices = await fetch(
+        `${database}/item.json?auth=GRjvLg49xTqi9rQOtTP26z4QAGxicTtxe0PUxEhJ`
+      );
 
       const getPricesJson = await getPrices.json();
 
@@ -37,6 +39,7 @@ const ScrollCenter = () => {
     getItemPrices();
   }, []);
 
+  //   ARRAY OF THE INGAME COMODOTIES
   const itemNames = [
     'beer',
     'bricks',
@@ -68,7 +71,9 @@ const ScrollCenter = () => {
     try {
       if (newPrice <= 0) return alert('ERROR', 'error');
       // 1 get prices array from db
-      const getPrices = await fetch(`${database}/item/${name}.json`);
+      const getPrices = await fetch(
+        `${database}/item/${name}.json?auth=GRjvLg49xTqi9rQOtTP26z4QAGxicTtxe0PUxEhJ`
+      );
 
       let getPricesJson = await getPrices.json();
       if (getPricesJson === null || getPricesJson[buySell] === undefined)
@@ -102,15 +107,18 @@ const ScrollCenter = () => {
 
       // 4 send back to db
 
-      const addPrice = await fetch(`${database}/item/${name}/${buySell}.json`, {
-        ...patchConfig,
-        body: JSON.stringify({
-          allPrice: [...getPricesJson[buySell].allPrice],
-          hiPrice: hiPrice,
-          loPrice: loPrice,
-          avgPrice: +avgPrice.toFixed(),
-        }),
-      });
+      const addPrice = await fetch(
+        `${database}/item/${name}/${buySell}.json?auth=GRjvLg49xTqi9rQOtTP26z4QAGxicTtxe0PUxEhJ`,
+        {
+          ...patchConfig,
+          body: JSON.stringify({
+            allPrice: [...getPricesJson[buySell].allPrice],
+            hiPrice: hiPrice,
+            loPrice: loPrice,
+            avgPrice: +avgPrice.toFixed(),
+          }),
+        }
+      );
 
       if (addPrice.ok) {
         await getItemPrices();
@@ -124,6 +132,7 @@ const ScrollCenter = () => {
 
   let content = <Spinner />;
 
+  //   RENDER ITEM BASED ON ITEMNAME ARRAY
   if (itemPrices)
     content = itemNames.map((element, index) => (
       <Item
@@ -133,6 +142,7 @@ const ScrollCenter = () => {
         priceHandler={submitPriceHandler}
       />
     ));
+
   return (
     <div className={classes.scrollCenter}>
       <Header />
