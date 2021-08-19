@@ -11,6 +11,7 @@
         "singleQuote": true
       }
     ],
-    "quotes": [2, "single"]
+    "quotes": [2, "single"],
+    "consistent-return": "off"
   }
 }

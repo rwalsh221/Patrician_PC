@@ -86,9 +86,7 @@ const ScrollCenter = () => {
       getPricesJson[buySell].allPrice.push(+newPrice);
 
       // 3 get hi lo avg
-      getPricesJson[buySell].allPrice.sort(function (a, b) {
-        return a - b;
-      });
+      getPricesJson[buySell].allPrice.sort((a, b) => a - b);
 
       const hiPrice =
         getPricesJson[buySell].allPrice[
@@ -99,7 +97,7 @@ const ScrollCenter = () => {
 
       let sum = 0;
 
-      for (let i = 0; i < getPricesJson[buySell].allPrice.length; i++) {
+      for (let i = 0; i < getPricesJson[buySell].allPrice.length; i += 1) {
         sum += getPricesJson[buySell].allPrice[i];
       }
 
@@ -113,8 +111,8 @@ const ScrollCenter = () => {
           ...patchConfig,
           body: JSON.stringify({
             allPrice: [...getPricesJson[buySell].allPrice],
-            hiPrice: hiPrice,
-            loPrice: loPrice,
+            hiPrice,
+            loPrice,
             avgPrice: +avgPrice.toFixed(),
           }),
         }
