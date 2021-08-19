@@ -1,6 +1,5 @@
 .itemContainer {
   border: 2px solid grey;
-
   color: var(--font-color);
   align-items: center;
   margin: 2rem;
@@ -86,7 +85,6 @@
   border-radius: 2rem;
   outline: none;
   border: 3px solid var(--font-color);
-  /* margin-left: 1rem; */
   margin: 1rem 0 1rem 3rem;
   width: 15rem;
   box-shadow: 2px 2px 2px black;

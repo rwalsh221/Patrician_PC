@@ -8,11 +8,6 @@ const Item = ({
   data: dataProps,
   priceHandler: priceHandlerProps,
 }) => {
-  console.log(dataProps);
-  // console.log(props);
-  // const { dataProps, priceHandlerProps } = props;
-  console.log(nameProps);
-
   const [alertMessage, setAlertMessage] = useState({
     alertMessage: null,
     disabled: false,
@@ -37,7 +32,7 @@ const Item = ({
 
   // SETS DATAKEY AND REMOVE SPACE i.e 'PIG IRON'
   const dataKey = nameProps.split(' ').join('');
-  // TODO: replace data with itemData below
+
   let itemData = { ...dataProps };
 
   // CREATE DATA OBJ IF ITEM DOESNT EXIST IN DATABASE
@@ -131,22 +126,22 @@ const Item = ({
       </div>
       <form className={classes.buyForm}>
         <input
-          type={'number'}
-          name={'buy_price'}
-          placeholder={'BUY'}
+          type="number"
+          name="buy_price"
+          placeholder="BUY"
           ref={buyInputRef}
         />
       </form>
       <form className={classes.sellForm}>
         <input
-          type={'number'}
-          name={'sell_price'}
-          placeholder={'SELL'}
+          type="number"
+          name="sell_price"
+          placeholder="SELL"
           ref={sellInputRef}
         />
       </form>
       <button
-        type={'submit'}
+        type="submit"
         disabled={alertMessage.disabled}
         className={`${classes.submitBtn} ${classes[alertMessage.className]}`}
         onClick={async (e) => {
