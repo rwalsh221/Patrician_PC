@@ -10,6 +10,16 @@
   padding: 5rem;
 }
 
+.scrollContainer {
+  display: flex;
+  width: 80%;
+  min-height: 80vh;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 @media (max-width: 1024px) {
   .main {
     padding: 2rem;

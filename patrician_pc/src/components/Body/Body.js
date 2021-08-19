@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import { database } from '../../firebase';
 
+import Spinner from '../Spinner/Spinner';
 import Item from '../Item/Item';
 
 import classes from './Body.module.css';
@@ -188,117 +189,121 @@ const Body = () => {
     }
   };
 
-  return (
-    <main>
-      <div className={classes.scrollContainer}>
-        <div className={classes.scrollTop}></div>
-        <div className={classes.scrollCenter}>
-          <h1 className={classes.mainHeading}>PATRICIAN 3 PRICE CHECKER</h1>
-          <Item
-            name={'beer'}
-            priceHandler={submitPriceHandler}
-            data={itemPrices}
-          />
-          <Item
-            name={'bricks'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'cloth'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'fish'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'grain'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'hemp'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'honey'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'iron goods'}
-            priceHandler={submitPriceHandler}
-            data={itemPrices}
-          />
-          <Item
-            name={'leather'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'meat'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'pig iron'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'pitch'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'pottery'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'salt'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'skins'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'spices'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'timber'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'whale oil'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'wine'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-          <Item
-            name={'wool'}
-            data={itemPrices}
-            priceHandler={submitPriceHandler}
-          />
-        </div>
-        <div className={classes.scrollBottom}></div>
-      </div>
-    </main>
-  );
+  let content = <Spinner />;
+
+  return content;
+
+  // return (
+  //   <main>
+  //     <div className={classes.scrollContainer}>
+  //       <div className={classes.scrollTop}></div>
+  //       <div className={classes.scrollCenter}>
+  //         <h1 className={classes.mainHeading}>PATRICIAN 3 PRICE CHECKER</h1>
+  //         <Item
+  //           name={'beer'}
+  //           priceHandler={submitPriceHandler}
+  //           data={itemPrices}
+  //         />
+  //         <Item
+  //           name={'bricks'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'cloth'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'fish'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'grain'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'hemp'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'honey'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'iron goods'}
+  //           priceHandler={submitPriceHandler}
+  //           data={itemPrices}
+  //         />
+  //         <Item
+  //           name={'leather'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'meat'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'pig iron'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'pitch'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'pottery'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'salt'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'skins'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'spices'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'timber'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'whale oil'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'wine'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //         <Item
+  //           name={'wool'}
+  //           data={itemPrices}
+  //           priceHandler={submitPriceHandler}
+  //         />
+  //       </div>
+  //       <div className={classes.scrollBottom}></div>
+  //     </div>
+  //   </main>
+  // );
 };
 
 export default Body;
