@@ -3,9 +3,15 @@ import PropTypes from 'prop-types';
 
 import classes from './Item.module.css';
 
-const Item = (props) => {
-  const { nameProps, dataProps, priceHandlerProps } = props;
-  console.log(props.name);
+const Item = ({
+  name: nameProps,
+  data: dataProps,
+  priceHandler: priceHandlerProps,
+}) => {
+  console.log(dataProps);
+  // console.log(props);
+  // const { dataProps, priceHandlerProps } = props;
+  console.log(nameProps);
 
   const [alertMessage, setAlertMessage] = useState({
     alertMessage: null,
@@ -155,9 +161,13 @@ const Item = (props) => {
 };
 
 Item.propTypes = {
-  nameProps: PropTypes.string.isRequired,
-  dataProps: PropTypes.objectOf(PropTypes.any).isRequired,
-  priceHandlerProps: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  data: PropTypes.objectOf(PropTypes.any),
+  priceHandler: PropTypes.func.isRequired,
+};
+
+Item.defaultProps = {
+  data: {},
 };
 
 export default Item;

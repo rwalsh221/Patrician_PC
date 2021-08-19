@@ -6,9 +6,11 @@ import Item from '../Item/Item';
 import classes from './Body.module.css';
 
 // TODO: COULD ADD POPUP TO SEE ALL PRICES AND DELETE
+// TODO: ADD LOADING SPINNER
 
 const Body = () => {
   const [itemPrices, setItemPrices] = useState(null);
+  console.log(itemPrices);
 
   const database =
     'https://patrician3-pc-default-rtdb.europe-west1.firebasedatabase.app/';
