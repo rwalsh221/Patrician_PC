@@ -1,8 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classes from './ScrollEdge.module.css';
 
-const ScrollEdge = ({ position }) => {
-  return <div className={classes[position]} />;
+const ScrollEdge = ({ position }) => <div className={classes[position]} />;
+
+ScrollEdge.propTypes = {
+  position: PropTypes.string.isRequired,
 };
 
 export default ScrollEdge;
