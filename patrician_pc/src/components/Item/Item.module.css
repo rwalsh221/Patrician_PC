@@ -111,6 +111,12 @@
   transition: 0.5s;
 }
 
+.error,
+.success {
+  color: black;
+  font-weight: 600;
+}
+
 .error {
   background-color: red;
 }
@@ -121,7 +127,6 @@
 
 .initial {
   background-color: #008080;
-  background-color: yellowgreen;
 }
 
 @media (max-width: 1024px) {
@@ -149,10 +154,14 @@
   .buy,
   .buyForm,
   .sell,
-  .sellForm,
-  .submitBtn {
+  .sellForm {
     grid-column: 1;
     margin: 0.5rem;
+  }
+
+  .submitBtn {
+    grid-column: 1;
+    margin: 2rem;
   }
 
   .name {

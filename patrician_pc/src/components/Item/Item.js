@@ -72,6 +72,8 @@ const Item = ({
         showAlert
       );
       sellInputRef.current.value = '';
+    } else {
+      showAlert('ERROR', 'error');
     }
   };
 

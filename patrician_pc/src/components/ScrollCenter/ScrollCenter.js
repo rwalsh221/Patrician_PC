@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import classes from './ScrollCenter.module.css';
 
-const Header = React.lazy(() => import('../Header/Header'));
-const Item = React.lazy(() => import('../Item/Item'));
-const Spinner = React.lazy(() => import('../Spinner/Spinner'));
+import Header from '../Header/Header';
+import Item from '../Item/Item';
+import Spinner from '../Spinner/Spinner';
+
+// const Header = React.lazy(() => import('../Header/Header'));
+// const Item = React.lazy(() => import('../Item/Item'));
+// const Spinner = React.lazy(() => import('../Spinner/Spinner'));
 
 // TODO ADD ERROR POPUP
 
@@ -143,10 +147,8 @@ const ScrollCenter = () => {
 
   return (
     <div className={classes.scrollCenter}>
-      <React.Suspense fallback={<p>Loading</p>}>
-        <Header />
-        {content}
-      </React.Suspense>
+      <Header />
+      {content}
     </div>
   );
 };
