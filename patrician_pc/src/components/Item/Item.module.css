@@ -1,11 +1,12 @@
 .itemContainer {
+  width: 90%;
   border: 2px solid grey;
   color: var(--font-color);
   align-items: center;
-  margin: 2rem;
+  margin: 2rem auto;
   border-radius: 1rem;
   display: grid;
-  grid-template: repeat(2, 50%) / repeat(4, max-content);
+  grid-template: repeat(2, 50%) / 1fr 2fr 1fr 1fr;
 }
 
 .name,

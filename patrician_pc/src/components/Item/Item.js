@@ -55,6 +55,8 @@ const Item = ({
     };
   }
 
+  console.log(itemData);
+
   const submitPriceHandler = async () => {
     if (buyInputRef.current.value !== '') {
       await priceHandlerProps(
@@ -86,19 +88,19 @@ const Item = ({
           <li className={classes.priceLabel}>
             AVG:
             <span className={classes.priceProp}>
-              {itemData ? itemData[dataKey].buy.avgPrice : 0}
+              {itemData[dataKey].buy.avgPrice}
             </span>
           </li>
           <li className={classes.priceLabel}>
             LO:
             <span className={classes.priceProp}>
-              {itemData ? itemData[dataKey].buy.loPrice : 0}
+              {itemData[dataKey].buy.loPrice}
             </span>
           </li>
           <li className={classes.priceLabel}>
             HI:
             <span className={classes.priceProp}>
-              {itemData ? itemData[dataKey].buy.hiPrice : 0}
+              {itemData[dataKey].buy.hiPrice}
             </span>
           </li>
         </ul>
@@ -109,19 +111,19 @@ const Item = ({
           <li className={classes.priceLabel}>
             AVG:
             <span className={classes.priceProp}>
-              {itemData ? itemData[dataKey].sell.avgPrice : 0}
+              {itemData[dataKey].sell.avgPrice}
             </span>
           </li>
           <li className={classes.priceLabel}>
             LO:
             <span className={classes.priceProp}>
-              {itemData ? itemData[dataKey].sell.loPrice : 0}
+              {itemData[dataKey].sell.loPrice}
             </span>
           </li>
           <li className={classes.priceLabel}>
             HI:
             <span className={classes.priceProp}>
-              {itemData ? itemData[dataKey].sell.hiPrice : 0}
+              {itemData[dataKey].sell.hiPrice}
             </span>
           </li>
         </ul>

@@ -5,12 +5,6 @@ import Header from '../Header/Header';
 import Item from '../Item/Item';
 import Spinner from '../Spinner/Spinner';
 
-// const Header = React.lazy(() => import('../Header/Header'));
-// const Item = React.lazy(() => import('../Item/Item'));
-// const Spinner = React.lazy(() => import('../Spinner/Spinner'));
-
-// TODO ADD ERROR POPUP
-
 const ScrollCenter = () => {
   const [itemPrices, setItemPrices] = useState(null);
 
