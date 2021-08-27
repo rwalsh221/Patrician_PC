@@ -7,6 +7,12 @@
   border-radius: 3px;
 }
 
+.errorMessage {
+  font-size: 5rem;
+  color: red;
+  text-align: center;
+}
+
 @media (max-width: 1366px) {
   .scrollCenter {
     width: 90%;

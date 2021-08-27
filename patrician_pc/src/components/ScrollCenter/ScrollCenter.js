@@ -7,6 +7,7 @@ import Spinner from '../Spinner/Spinner';
 
 const ScrollCenter = () => {
   const [itemPrices, setItemPrices] = useState(null);
+  const [error, seterror] = useState(null);
 
   const database =
     'https://patrician3-pc-default-rtdb.europe-west1.firebasedatabase.app/';
@@ -19,6 +20,12 @@ const ScrollCenter = () => {
     },
   };
 
+  let content = error ? (
+    <p className={classes.errorMessage}>{error}</p>
+  ) : (
+    <Spinner />
+  );
+
   const getItemPrices = async () => {
     try {
       const getPrices = await fetch(
@@ -28,8 +35,8 @@ const ScrollCenter = () => {
       const getPricesJson = await getPrices.json();
 
       setItemPrices(getPricesJson);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      seterror(`ERROR: ${err.message}`);
     }
   };
 
@@ -122,11 +129,11 @@ const ScrollCenter = () => {
       }
       if (!addPrice.ok) throw new Error();
     } catch (err) {
-      console.error(err.message);
+      alert('ERROR', 'error');
     }
   };
 
-  let content = <Spinner />;
+  // let content = <Spinner />;
 
   //   RENDER ITEM BASED ON ITEMNAME ARRAY
   if (itemPrices)
