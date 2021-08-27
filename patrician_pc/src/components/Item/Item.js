@@ -55,8 +55,6 @@ const Item = ({
     };
   }
 
-  console.log(itemData);
-
   const submitPriceHandler = async () => {
     if (buyInputRef.current.value !== '') {
       await priceHandlerProps(

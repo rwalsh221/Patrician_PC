@@ -20,6 +20,7 @@ const ScrollCenter = () => {
     },
   };
 
+  // INIT PAGE LOAD CONTENT
   let content = error ? (
     <p className={classes.errorMessage}>{error}</p>
   ) : (
@@ -132,8 +133,6 @@ const ScrollCenter = () => {
       alert('ERROR', 'error');
     }
   };
-
-  // let content = <Spinner />;
 
   //   RENDER ITEM BASED ON ITEMNAME ARRAY
   if (itemPrices)
